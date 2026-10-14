@@ -1,0 +1,10 @@
+{
+  "defaultWallpaper": "@HOME@/Pictures/Wallpapers/Hacker-Neon/wallpaper.png",
+  "usedRandomWallpapers": {},
+  "wallpapers": {
+    "eDP-1": {
+      "dark": "@HOME@/Pictures/Wallpapers/Hacker-Neon/wallpaper.png",
+      "light": "@HOME@/Pictures/Wallpapers/Hacker-Neon/wallpaper.png"
+    }
+  }
+}

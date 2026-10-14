@@ -1,0 +1,30 @@
+window-rule {
+    geometry-corner-radius 16
+    clip-to-geometry true
+    draw-border-with-background false
+}
+
+window-rule {
+    match title="Zen*"
+    open-on-workspace "[02:WEB]"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="clipse"
+    open-floating true
+    open-focused true
+}
+
+window-rule {
+    match app-id="^HackerMonitor$"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="^HackerShortcuts$"
+    open-floating true
+    open-focused true
+    default-column-width { fixed 940; }
+    default-window-height { fixed 760; }
+}

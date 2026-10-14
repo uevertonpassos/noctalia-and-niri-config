@@ -1,0 +1,2 @@
+#!/bin/sh
+exec alacritty --class HackerShortcuts --title "ATALHOS // CONSOLE" -o window.opacity=0.97 -o window.dimensions.columns=94 -o window.dimensions.lines=38 -o font.size=11 -e python3 "$HOME/.local/lib/hacker-desktop/shortcuts.py"

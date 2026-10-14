@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-10-14",
+  "platform": "CachyOS Linux x86_64",
+  "noctalia_bundled_version": "4.7.7 (customized local snapshot)",
+  "packages": {
+    "niri": "26.04-1.1",
+    "noctalia-shell": "5.2.1-1",
+    "noctalia-qs": "0.0.12-2",
+    "alacritty": "0.17.0-1.2",
+    "btop": "1.4.7-1.1",
+    "zsh": "5.9.2-1.1",
+    "oh-my-zsh-git": "r7823.b37dd49ca-1",
+    "zsh-autosuggestions": "0.7.1-1",
+    "zsh-history-substring-search": "1.1.0-2",
+    "zsh-syntax-highlighting": "0.8.0-2",
+    "python": "3.14.8-1",
+    "fzf": "0.74.5-1.1",
+    "eza": "0.23.5-2.1",
+    "adw-gtk-theme": "6.5-1",
+    "adwaita-fonts": "51.0-2",
+    "ttf-meslo-nerd": "3.5.1-2",
+    "brave-bin": "1:1.97.56-1"
+  },
+  "niri": "niri 26.04 (8ed0da4)",
+  "quickshell": "noctalia-qs 0.0.12 (revision , distributed by Arch Linux)",
+  "wallpaper_sha256": "8614c77ad194d97f884369b93f15b2371ce18fdbff074f8570202bc83864df73"
+}

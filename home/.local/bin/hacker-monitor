@@ -1,0 +1,2 @@
+#!/bin/sh
+exec alacritty --class HackerMonitor --title "SYS // MONITOR" -e btop --config "$HOME/.config/btop/btop.conf"

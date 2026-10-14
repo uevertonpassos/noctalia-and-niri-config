@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Atalhos Hacker
+Comment=Painel de atalhos do desktop
+Exec="@HOME@/.local/bin/hacker-shortcuts"
+Icon=preferences-desktop-keyboard-shortcuts
+Terminal=false
+Categories=Utility;
+Keywords=atalhos;hacker;teclado;shortcuts;

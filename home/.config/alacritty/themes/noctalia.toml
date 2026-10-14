@@ -1,0 +1,33 @@
+# Colors (Noctalia)
+
+[colors.bright]
+black = '#626b88'
+blue = '#b2d0f0'
+cyan = '#b4dfdc'
+green = '#c2ddb8'
+magenta = '#d0bbf3'
+red = '#ffb1be'
+white = '#f0f1f8'
+yellow = '#f2dcb7'
+
+[colors.cursor]
+cursor = '#cbb9ed'
+text = '#11131e'
+
+[colors.normal]
+black = '#303449'
+blue = '#93b4db'
+cyan = '#94c6c6'
+green = '#adc9a9'
+magenta = '#b8a1e3'
+red = '#ef9aab'
+white = '#d2d7e8'
+yellow = '#e5c89b'
+
+[colors.primary]
+background = '#11131e'
+foreground = '#e0e3f0'
+
+[colors.selection]
+background = '#454263'
+text = '#f0f1f8'

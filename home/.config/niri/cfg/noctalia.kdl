@@ -1,0 +1,33 @@
+// Noite Serena. Noctalia starts only from cfg/autostart.kdl.
+// Niri 26.04+: cached wallpaper blur keeps this inexpensive.
+blur {
+    passes 2
+    offset 2.5
+    noise 0.015
+    saturation 1.0
+}
+
+window-rule {
+    match app-id="^(Alacritty|HackerMonitor|HackerShortcuts)$"
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+// Noctalia requests the exact blur shape through ext-background-effect.
+layer-rule {
+    match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+    background-effect {
+        xray true
+    }
+}
+
+layer-rule {
+    match namespace="^noctalia-overview.*$"
+    place-within-backdrop true
+}
+
+overview {
+    backdrop-color "#080d09"
+}

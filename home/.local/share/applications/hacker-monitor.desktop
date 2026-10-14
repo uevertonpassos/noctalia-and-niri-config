@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Monitor Hacker
+Comment=CPU, memória, rede e processos em tempo real
+Exec="@HOME@/.local/bin/hacker-monitor"
+Icon=utilities-system-monitor
+Terminal=false
+Categories=System;Monitor;
+Keywords=CPU;RAM;rede;btop;monitor;

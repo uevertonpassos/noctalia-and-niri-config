@@ -1,0 +1,7 @@
+// ────────────── Startup Applications ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous
+
+spawn-at-startup "dbus-update-activation-environment" "--all"
+// Polkit is provided by the enabled Noctalia polkit-agent plugin.
+spawn-at-startup "@HOME@/.local/bin/hacker-apply-theme"
+spawn-at-startup "qs" "-c" "noctalia-shell"

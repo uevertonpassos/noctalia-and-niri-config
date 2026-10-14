@@ -1,0 +1,34 @@
+/* Hacker Neon: browser chrome only. */
+:root {
+  --lwt-accent-color: #060b08 !important;
+  --lwt-text-color: #c7f7cf !important;
+  --toolbar-bgcolor: #080d09 !important;
+  --toolbar-color: #c7f7cf !important;
+  --toolbar-field-background-color: #101c13 !important;
+  --toolbar-field-color: #c7f7cf !important;
+  --toolbar-field-border-color: #285235 !important;
+  --toolbar-field-focus-background-color: #101c13 !important;
+  --toolbar-field-focus-color: #c7f7cf !important;
+  --toolbar-field-focus-border-color: #39ff14 !important;
+  --toolbarbutton-icon-fill: #7fe898 !important;
+  --toolbarbutton-hover-background: #183b20 !important;
+  --toolbarbutton-active-background: #20502b !important;
+  --lwt-selected-tab-background-color: #14271a !important;
+  --lwt-tab-text: #39ff14 !important;
+  --focus-outline-color: #39ff14 !important;
+  --tab-selected-bgcolor: #14271a !important;
+  --tab-selected-textcolor: #39ff14 !important;
+  --arrowpanel-background: #0b160e !important;
+  --arrowpanel-color: #c7f7cf !important;
+  --arrowpanel-border-color: #285235 !important;
+}
+#navigator-toolbox { background: #060b08 !important; border-bottom: 1px solid #285235 !important; }
+#TabsToolbar { background: #060b08 !important; }
+.tab-background[selected] { background: #14271a !important; box-shadow: inset 0 2px #39ff14 !important; border: 1px solid #285235 !important; }
+.tab-label { font-family: "MesloLGS Nerd Font", monospace !important; }
+.tabbrowser-tab[selected] .tab-label { color: #39ff14 !important; }
+#nav-bar, #PersonalToolbar { background: #080d09 !important; color: #c7f7cf !important; }
+#urlbar-background, #searchbar { background: #101c13 !important; border-color: #285235 !important; }
+#urlbar[focused] > #urlbar-background { border-color: #39ff14 !important; box-shadow: 0 0 0 1px #39ff1444 !important; }
+#urlbar-input { color: #c7f7cf !important; }
+#urlbar-results { background: #101c13 !important; color: #c7f7cf !important; }

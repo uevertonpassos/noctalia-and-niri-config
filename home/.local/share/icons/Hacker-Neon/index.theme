@@ -1,0 +1,12 @@
+[Icon Theme]
+Name=Hacker Neon
+Comment=Pastas verdes com contornos de terminal
+Inherits=Adwaita,AdwaitaLegacy,hicolor
+Directories=scalable/places
+
+[scalable/places]
+Size=128
+MinSize=16
+MaxSize=512
+Type=Scalable
+Context=Places
