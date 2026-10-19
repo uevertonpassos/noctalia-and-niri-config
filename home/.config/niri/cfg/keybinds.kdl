@@ -10,7 +10,7 @@ binds {
 
     // ─── Applications ───
     Super+W                             hotkey-overlay-title="Open App Launcher: noctalia launcher" allow-inhibiting=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Super+T                             hotkey-overlay-title="Open Terminal: Alacritty" allow-inhibiting=false { spawn "alacritty"; }
+    Super+T                             repeat=false hotkey-overlay-title="Terminal na pasta selecionada ou sob o mouse" allow-inhibiting=false { spawn "/usr/bin/python3" "@HOME@/.local/bin/terminal-context-launcher.py"; }
     Mod+B                               hotkey-overlay-title="Open Browser: firefox" { spawn "firefox"; }
     Super+L                             hotkey-overlay-title="Bloquear tela" allow-inhibiting=false { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     Mod+Shift+Q                        hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
@@ -76,6 +76,15 @@ binds {
     Mod+WheelScrollUp                   cooldown-ms=150 { focus-workspace-up; }
     Mod+CTRL+WheelScrollDown            cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+CTRL+WheelScrollUp              cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // MX Master 3S back/forward buttons: previous/next desktop.
+    MouseBack repeat=false hotkey-overlay-title="MX Master: desktop anterior" { focus-workspace-up; }
+    MouseForward repeat=false hotkey-overlay-title="MX Master: próximo desktop" { focus-workspace-down; }
+
+    // MX Master 3S thumb wheel, supplied by mx-master-window-scroll.service.
+    XF86Launch9 repeat=false hotkey-overlay-title="MX Master: abrir Codex na pasta" { spawn "/usr/bin/python3" "@HOME@/.local/bin/codex-mouse-launcher.py"; }
+    F23 cooldown-ms=220 repeat=false hotkey-overlay-title="MX Master: janela à esquerda" { focus-column-left; }
+    F24 cooldown-ms=220 repeat=false hotkey-overlay-title="MX Master: janela à direita" { focus-column-right; }
 
     Mod+WheelScrollRight                { focus-column-right; }
     Mod+WheelScrollLeft                 { focus-column-left; }

@@ -3,6 +3,7 @@
 import argparse
 import datetime
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -61,6 +62,10 @@ def check_dependencies():
     missing = [cmd for cmd in ('niri', 'qs', 'alacritty', 'btop', 'zsh') if not shutil.which(cmd)]
     if missing:
         raise RuntimeError('Instale primeiro as dependências: ' + ', '.join(missing) + '\nExecute ./install-deps.sh no CachyOS.')
+    modules = {'evdev': 'python-evdev', 'gi': 'python-gobject'}
+    missing = [package for module, package in modules.items() if importlib.util.find_spec(module) is None]
+    if missing:
+        raise RuntimeError('Dependências dos atalhos ausentes: ' + ', '.join(missing) + '\nExecute ./install-deps.sh.')
 
 
 def validate_niri(stage):
@@ -151,6 +156,10 @@ def activate(target):
         subprocess.run(['fc-cache', '-f', str(target / '.local/share/fonts/Hacker-Neon')], check=True)
     if os.environ.get('DBUS_SESSION_BUS_ADDRESS'):
         subprocess.run([str(target / '.local/bin/hacker-apply-theme')], check=True)
+        subprocess.run(['systemctl', '--user', 'daemon-reload'], check=True)
+        active = subprocess.run(['systemctl', '--user', 'is-active', '--quiet', 'niri.service'])
+        if active.returncode == 0 and os.access('/dev/uinput', os.R_OK | os.W_OK):
+            subprocess.run(['systemctl', '--user', 'restart', 'mx-master-window-scroll.service'], check=True)
     print('Entre novamente na sessão Niri para carregar todo o conjunto.')
 
 
@@ -158,7 +167,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--target', type=Path, default=Path.home(), help='outra pasta home, útil para teste')
     parser.add_argument('--dry-run', action='store_true', help='validar e listar o total sem escrever na home')
-    parser.add_argument('--no-session', action='store_true', help='não aplicar GSettings nem atualizar o cache de fontes')
+    parser.add_argument('--no-session', action='store_true', help='não aplicar GSettings, cache de fontes nem serviços da sessão')
     args = parser.parse_args()
     if os.geteuid() == 0:
         parser.error('Execute como seu usuário normal, sem sudo.')

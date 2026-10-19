@@ -1,9 +1,11 @@
 import importlib.util
 import json
 import os
+import runpy
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 REPO = Path(__file__).resolve().parents[1]
 
@@ -39,6 +41,35 @@ class RestoreTests(unittest.TestCase):
             self.assertEqual((target / '.local/share/icons/Hacker-Neon-Cursors/cursors/left_ptr').resolve().name, 'default')
             self.assertTrue(os.access(target / '.local/bin/hacker-shortcuts', os.X_OK))
             self.assertIn(str(target), (target / '.config/niri/cfg/keybinds.kdl').read_text())
+            self.assertEqual(settings['idle']['suspendTimeout'], 0)
+            self.assertEqual(settings['idle']['screenOffTimeout'], 600)
+            self.assertEqual(settings['idle']['lockTimeout'], 660)
+            service = target / '.config/systemd/user/mx-master-window-scroll.service'
+            enabled = target / '.config/systemd/user/graphical-session.target.wants/mx-master-window-scroll.service'
+            self.assertEqual(enabled.resolve(), service)
+            self.assertIn('"%h/.local/bin/mx-master-window-scroll.py"', service.read_text())
+            for name in ('Abrir no Codex', 'Abrir terminal aqui'):
+                script = target / '.local/share/nautilus/scripts' / name
+                self.assertTrue(os.access(script, os.X_OK))
+                self.assertIn('"$HOME/.local/bin/', script.read_text())
+            with patch.object(Path, 'home', return_value=target):
+                codex = runpy.run_path(str(target / '.local/bin/codex-mouse-launcher.py'))
+                terminal = runpy.run_path(str(target / '.local/bin/terminal-context-launcher.py'))
+            project = target / 'projeto com espaços ç $()'
+            project.mkdir()
+            env = {'NAUTILUS_SCRIPT_SELECTED_URIS': project.as_uri(),
+                   'NAUTILUS_SCRIPT_CURRENT_URI': target.as_uri()}
+            self.assertEqual(codex['nautilus_directory'](env), project)
+            self.assertEqual(terminal['HELPERS']['nautilus_directory'](env), project)
+            with patch('shutil.which', return_value='/usr/bin/codex'):
+                command = codex['terminal_command'](project)
+            self.assertEqual(command[-4:], ['-e', '/usr/bin/codex', '--cd', str(project)])
+            with patch('shutil.which', return_value=None):
+                with self.assertRaisesRegex(ValueError, 'Instale o Codex'):
+                    codex['terminal_command'](project)
+            with patch('subprocess.Popen') as popen:
+                terminal['launch'](project)
+                self.assertEqual(popen.call_args.args[0], ['/usr/bin/alacritty', '--working-directory', str(project)])
             for path in target.rglob('*'):
                 if path.is_file() and not path.is_symlink() and 'backups' not in path.parts:
                     data = path.read_bytes()

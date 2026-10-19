@@ -19,9 +19,14 @@
     "adw-gtk-theme": "6.5-1",
     "adwaita-fonts": "51.0-2",
     "ttf-meslo-nerd": "3.5.1-2",
-    "brave-bin": "1:1.97.56-1"
+    "brave-bin": "1:1.97.56-1",
+    "python-evdev": "2.0.0-1.1",
+    "python-gobject": "3.58.1-1",
+    "at-spi2-core": "2.62.1-1.1",
+    "nautilus": "51.1-1.1"
   },
   "niri": "niri 26.04 (8ed0da4)",
   "quickshell": "noctalia-qs 0.0.12 (revision , distributed by Arch Linux)",
-  "wallpaper_sha256": "8614c77ad194d97f884369b93f15b2371ce18fdbff074f8570202bc83864df73"
+  "wallpaper_sha256": "8614c77ad194d97f884369b93f15b2371ce18fdbff074f8570202bc83864df73",
+  "workflow_updated_at": "2026-10-19"
 }

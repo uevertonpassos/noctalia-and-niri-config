@@ -1,0 +1,13 @@
+[Unit]
+Description=MX Master 3S thumb wheel window navigation
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 "%h/.local/bin/mx-master-window-scroll.py"
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=graphical-session.target

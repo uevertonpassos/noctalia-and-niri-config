@@ -47,6 +47,10 @@
     "sha256": "4495d66b36ba1b3f78055835fb2475496079e56ad481c994df9f0209c53fe660",
     "mode": "0o644"
   },
+  ".config/nautilus/scripts-accels": {
+    "sha256": "238917c9538edcc29147da06adab1c35d20a15b75818066d8b601d2a373715de",
+    "mode": "0o644"
+  },
   ".config/niri/cfg/animation.kdl": {
     "sha256": "7444a15afb7ff51b2208da450cd5608a5c9496e50b7fb96d2c749ff7909b6c26",
     "mode": "0o644"
@@ -64,7 +68,7 @@
     "mode": "0o644"
   },
   ".config/niri/cfg/keybinds.kdl": {
-    "sha256": "0e79cc0cc9c06a0e4aa170fd6b952c111d82f16128e7e859a0fc193f2a2f4633",
+    "sha256": "77d632fe989552098237da1cbdc99cc48d37e897ba315c2b3891f02bcba2e591",
     "mode": "0o644"
   },
   ".config/niri/cfg/layout.kdl": {
@@ -204,7 +208,7 @@
     "mode": "0o644"
   },
   ".config/noctalia/settings.json": {
-    "sha256": "ea44ed9992af8e91fa0d8e4644dae2d73468be1c34cff115b679525f7cdc1222",
+    "sha256": "b6a7435f285d9f95538a4ecaa40b77001602d15c2db7e56206bec0e49b0c94c0",
     "mode": "0o644"
   },
   ".config/oh-my-zsh/custom/themes/hacker-neon.zsh-theme": {
@@ -2623,9 +2627,20 @@
     "sha256": "29bd664a002ba211b2f4f3afa6e8699f6d63bfc4244e51e66dd53d451e00cba7",
     "mode": "0o644"
   },
+  ".config/systemd/user/graphical-session.target.wants/mx-master-window-scroll.service": {
+    "symlink": "../mx-master-window-scroll.service"
+  },
+  ".config/systemd/user/mx-master-window-scroll.service": {
+    "sha256": "87e28eaf4b64566d40614a79e5761dd14f3d39f0354b2bd13d1ca5fe5e66c2d4",
+    "mode": "0o644"
+  },
   ".icons/default/index.theme": {
     "sha256": "d4fde512b086fa360723786d0c3eb66fb35b76f5c251a3691bc26ac55f5d67a0",
     "mode": "0o644"
+  },
+  ".local/bin/codex-mouse-launcher.py": {
+    "sha256": "e0f0b1df109b0205fd8f7a057f92f51f30eba190490d3a9cd388f4c260c728a0",
+    "mode": "0o755"
   },
   ".local/bin/hacker-apply-theme": {
     "sha256": "8d3ba2da548584e2529d0c019d2b0eb0d35367fe851e01125eacf012c0ba3169",
@@ -2639,8 +2654,16 @@
     "sha256": "98d92d8bb379386a71bd96796c2285c5a8c24c898cf4f9e209b7d6209f8876bb",
     "mode": "0o755"
   },
+  ".local/bin/mx-master-window-scroll.py": {
+    "sha256": "2a0f8fcb5e6ec6ac2aded850810e2572a40d5711b4b74ce088b354a52c6193f1",
+    "mode": "0o644"
+  },
+  ".local/bin/terminal-context-launcher.py": {
+    "sha256": "0e825a368bb8edb168363b28f100a842c9687cf1a96386430343b70fa29efa69",
+    "mode": "0o755"
+  },
   ".local/lib/hacker-desktop/shortcuts.py": {
-    "sha256": "b72c3b3e134f99abf3d26b82b02ee40cd8db7430137ed57696a1d23515bbffbb",
+    "sha256": "b4e41c96c5b284bc88d5203a8697a81296732467c2100154da271a4b70893066",
     "mode": "0o644"
   },
   ".local/share/applications/hacker-monitor.desktop": {
@@ -7469,6 +7492,14 @@
   ".local/share/icons/default/index.theme": {
     "sha256": "d4fde512b086fa360723786d0c3eb66fb35b76f5c251a3691bc26ac55f5d67a0",
     "mode": "0o644"
+  },
+  ".local/share/nautilus/scripts/Abrir no Codex": {
+    "sha256": "7a03d1ed00f2e4e49aa7194be73701ab805265d61afd8fa9c8156e7b6115f846",
+    "mode": "0o755"
+  },
+  ".local/share/nautilus/scripts/Abrir terminal aqui": {
+    "sha256": "5814610eccacfd59fe12caf5af3ef9f81ddf0635beb49f908f0a8a5d8a1e2ed1",
+    "mode": "0o755"
   },
   ".zshrc": {
     "sha256": "2559c74ae3c012e56c02e89df251c143159bf186577cfb5b3031d41e89ec6f9a",

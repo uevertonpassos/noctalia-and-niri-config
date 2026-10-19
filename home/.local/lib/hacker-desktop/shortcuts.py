@@ -4,7 +4,7 @@ import curses
 
 GROUPS = [
  ('01 // APLICATIVOS',[
-  ('Super + T','Terminal Zsh / Oh My Zsh'),('Super + W','Buscar aplicativos'),
+  ('Super + T','Terminal na pasta selecionada / sob o mouse'),('Super + W','Buscar aplicativos'),
   ('Super + B','Firefox'),('Super + E','Arquivos'),('Super + M','Monitor de sistema'),
   ('Super + F1','Este painel de atalhos'),('Super + L','Bloquear a tela'),
   ('Super + Shift + Q','Menu de sessão')]),
@@ -27,6 +27,10 @@ GROUPS = [
   ('Super + Escape','Alternar bloqueio de atalhos por apps'),
   ('Super + Shift + Escape','Painel nativo de atalhos'),
   ('Ctrl + Alt + Delete','Diálogo para sair do Niri')]),
+ ('05 // MX MASTER 3S',[
+  ('Roda lateral','Janela à esquerda / direita'),
+  ('Botão traseiro / dianteiro','Desktop anterior / próximo'),
+  ('Botão da base do polegar','Codex na pasta selecionada / atual')]),
 ]
 
 def main(screen):

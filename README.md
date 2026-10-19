@@ -1,6 +1,6 @@
 # Noctalia + Niri — Hacker Neon
 
-Backup restaurável do desktop de Ueverton Passos, capturado em **14/10/2026**: preto, verde neon `#39ff14`, wallpaper tech, terminal inspirado no Kali e tela de bloqueio Matrix.
+Backup restaurável do desktop de Ueverton Passos, capturado em **14/10/2026**, com atalhos e energia atualizados em **19/10/2026**: preto, verde neon `#39ff14`, wallpaper tech, terminal inspirado no Kali e tela de bloqueio Matrix.
 
 Este repositório inclui o **Noctalia personalizado completo**, porque copiar somente `settings.json` não recupera as mudanças feitas no launcher, nas notificações, no menu de sessão e na tela de bloqueio.
 
@@ -21,7 +21,9 @@ Se ainda não configurou sua chave SSH no sistema novo, clone por HTTPS:
 git clone https://github.com/uevertonpassos/noctalia-and-niri-config.git
 ```
 
-Depois, encerre a sessão e escolha **Niri** na tela de login. Execute `./install.sh` **sem sudo**; somente a instalação dos pacotes usa sudo. O script não altera o shell de login: o Alacritty já abre o Zsh com Oh My Zsh.
+Depois, encerre a sessão e escolha **Niri** na tela de login. Execute os scripts **como seu usuário normal**. `install-deps.sh` usa sudo para instalar pacotes, adicionar seu usuário ao grupo `input` e configurar o módulo `uinput`. `install.sh` restaura os arquivos da home sem sudo. O shell de login não é alterado: o Alacritty já abre o Zsh com Oh My Zsh.
+
+O novo login também ativa as permissões de entrada e os atalhos do Nautilus. O serviço `mx-master-window-scroll.service` já fica habilitado para iniciar com a sessão gráfica; ele aguarda o mouse quando estiver desconectado e volta a conectá-lo automaticamente.
 
 O instalador adapta os caminhos para a sua home, copia as fontes e o wallpaper, valida a configuração com o Niri instalado e salva os arquivos anteriores em:
 
@@ -56,6 +58,9 @@ Os arquivos de `home/` são modelos com o marcador `@HOME@`. Use o instalador pa
 | Fontes | MesloLGS Nerd Font e Adwaita, com suas licenças |
 | Wallpaper | O mesmo PNG usado no desktop original, sem edição |
 | Aplicativos | Estilos GTK/Qt e scripts para reaplicar o tema nos navegadores |
+| MX Master 3S | Roda lateral para janelas, botões laterais para desktops e botão do polegar para Codex |
+| Pastas | Super + T contextual e scripts do Nautilus para terminal/Codex |
+| Energia | Tela apaga em 10 minutos, bloqueia em 11 e suspensão automática por inatividade desativada |
 
 ![Ícones e cursores incluídos](docs/icons-and-cursors.png)
 
@@ -65,7 +70,7 @@ Os arquivos de `home/` são modelos com o marcador `@HOME@`. Use o instalador pa
 
 | Atalho | Ação |
 | --- | --- |
-| Super + T | Terminal Kali Neon |
+| Super + T | Terminal na pasta selecionada, sob o ponteiro ou atual do Nautilus |
 | Super + W | Launcher do Noctalia |
 | Super + B | Firefox, como na configuração original |
 | Super + E | Arquivos / Nautilus |
@@ -76,6 +81,36 @@ Os arquivos de `home/` são modelos com o marcador `@HOME@`. Use o instalador pa
 | Super + 1 / 2 / 3 | TERM / WEB / CODE |
 | Super + Ctrl + 1 / 2 / 3 | Mover a coluna para outra área |
 | Super + O | Visão geral |
+| Roda lateral do MX Master 3S | Janela à esquerda / direita |
+| Botão lateral traseiro / dianteiro | Desktop anterior / próximo |
+| Botão na base do polegar | Codex na pasta selecionada ou atual do Nautilus |
+
+### Terminal e Codex nas pastas
+
+No Nautilus, **Super + T** dá prioridade à pasta selecionada. Sem seleção, abre e fecha o menu de contexto para selecionar o item sob o ponteiro; sobre uma pasta, abre o terminal nela. Em uma área vazia, usa a pasta atual. A identificação da seleção usa a acessibilidade do GTK; se essa consulta não estiver disponível, usa a seleção/pasta atual fornecida pelo Nautilus. Fora do gerenciador, abre na pasta pessoal. Selecionar mais de uma pasta pede que você escolha uma.
+
+O botão na base do polegar abre **Codex** na pasta selecionada; sem seleção, usa a pasta atual do Nautilus. Fora dele, usa a pasta pessoal. Os dois scripts também aparecem no menu **Scripts** do Nautilus. `F19` e `Shift + F19` são usados internamente para acionar esses scripts; mantenha essas combinações livres.
+
+Instale o [Codex CLI](https://developers.openai.com/codex/cli/) separadamente e execute `codex login`. O lançador procura `~/.local/bin/codex` e depois o comando `codex` no PATH. O repositório não inclui o binário, as credenciais nem as conversas do Codex. O terminal comum funciona sem ele.
+
+O remapeamento foi configurado com o **MX Master 3S via Bluetooth**, cujo botão da base emite `BTN_FORWARD` (277). A roda vira F23/F24, e o botão da base vira F18, interpretado como `XF86Launch9` pelo mapa de teclado incluído. Se outro modelo/conexão emitir códigos diferentes, ajuste o script do mouse. Os atalhos nativos MouseBack/MouseForward também se aplicam a outros mouses e substituem voltar/avançar no navegador.
+
+O grupo `input` permite ler os eventos usados pelo remapeador e verificar se as teclas modificadoras foram soltas. A regra `system/70-hacker-neon-uinput.rules` permite ao mesmo grupo criar os dispositivos virtuais; `system/hacker-neon-uinput.conf` carrega o módulo no boot. Para reaplicar somente essas permissões após instalar os pacotes:
+
+```bash
+bash scripts/setup-input.sh
+```
+
+Depois, entre novamente na sessão. Para verificar o serviço ou desativar o remapeamento:
+
+```bash
+systemctl --user status mx-master-window-scroll.service
+systemctl --user disable --now mx-master-window-scroll.service
+```
+
+### Tela apagada e chamadas
+
+A configuração mantém os aplicativos ativos quando a tela apaga ou bloqueia. **Super + Shift + P** apaga apenas os monitores. Suspender/hibernar manualmente ou fechar a tampa ainda pode interromper chamadas; o ajuste desativa somente a suspensão automática por inatividade do Noctalia.
 
 ## Brave, Chromium e Firefox
 
@@ -110,6 +145,11 @@ Atualizar manualmente a cópia local do Noctalia pode substituir as personaliza�
 | `home/.config/noctalia/colorschemes/Noite Serena/` | Paleta persistente |
 | `home/.config/quickshell/noctalia-shell/` | Código completo do Noctalia personalizado |
 | `home/.config/niri/` | Compositor, atalhos e workspaces |
+| `home/.local/bin/mx-master-window-scroll.py` | Remapeamento do MX Master 3S |
+| `home/.config/systemd/user/` | Serviço do mouse e habilitação na sessão gráfica |
+| `home/.local/bin/*-launcher.py` | Abertura contextual do terminal e Codex |
+| `home/.local/share/nautilus/scripts/` e `home/.config/nautilus/scripts-accels` | Integração com a seleção do gerenciador |
+| `system/` e `scripts/setup-input.sh` | Permissões persistentes de entrada e módulo uinput |
 | `home/.config/alacritty/` e `home/.zshrc` | Terminal e shell |
 | `home/.config/oh-my-zsh/custom/themes/` | Prompt Kali Neon |
 | `home/.local/share/icons/` | Ícones e cursores |
