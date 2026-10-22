@@ -56,13 +56,21 @@ Os arquivos de `home/` são modelos com o marcador `@HOME@`. Use o instalador pa
 | Monitor | btop com o tema Hacker Neon |
 | Ícones e cursor | Pastas verdes e cursores neon com quatro tamanhos e animação de espera |
 | Fontes | MesloLGS Nerd Font e Adwaita, com suas licenças |
-| Wallpaper | O mesmo PNG usado no desktop original, sem edição |
+| Wallpapers | PNG original e três opções de arte ASCII hacker |
 | Aplicativos | Estilos GTK/Qt e scripts para reaplicar o tema nos navegadores |
 | MX Master 3S | Roda lateral para janelas, botões laterais para desktops e botão do polegar para Codex |
 | Pastas | Super + T contextual e scripts do Nautilus para terminal/Codex |
 | Energia | Tela apaga em 10 minutos, bloqueia em 11 e suspensão automática por inatividade desativada |
 
 ![Ícones e cursores incluídos](docs/icons-and-cursors.png)
+
+## Wallpapers ASCII
+
+Três opções geradas com IA em **22/10/2026**, inspiradas na estética de terminal hacker do wallpaper escolhido pelo usuário. Os PNGs têm **1672 × 941 pixels** e são copiados pelo instalador para `~/Pictures/Wallpapers/Hacker-Neon/`, onde podem ser escolhidos pelo seletor de wallpapers do Noctalia. O wallpaper padrão continua sendo o original.
+
+| Multicolorido — Hack the Planet | Verde e ciano — Hack the Planet | Vermelho e roxo — Stay Curious |
+| --- | --- | --- |
+| ![Wallpaper ASCII multicolorido](home/Pictures/Wallpapers/Hacker-Neon/wallpaper-hacker-ascii.png) | ![Wallpaper ASCII verde e ciano](home/Pictures/Wallpapers/Hacker-Neon/wallpaper-hacker-ascii-matrix.png) | ![Wallpaper ASCII vermelho e roxo](home/Pictures/Wallpapers/Hacker-Neon/wallpaper-hacker-ascii-crimson.png) |
 
 ## Atalhos principais
 

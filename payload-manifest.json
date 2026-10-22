@@ -7505,6 +7505,18 @@
     "sha256": "2559c74ae3c012e56c02e89df251c143159bf186577cfb5b3031d41e89ec6f9a",
     "mode": "0o644"
   },
+  "Pictures/Wallpapers/Hacker-Neon/wallpaper-hacker-ascii-crimson.png": {
+    "sha256": "5801fe0c3ad3242e02e5204cd2fba8f165d65793115325cdc75a2c1ecf0e85cf",
+    "mode": "0o644"
+  },
+  "Pictures/Wallpapers/Hacker-Neon/wallpaper-hacker-ascii-matrix.png": {
+    "sha256": "14f512badc70b9613179086a524e158715c2e0c22aa217f5d7ba5055533e156a",
+    "mode": "0o644"
+  },
+  "Pictures/Wallpapers/Hacker-Neon/wallpaper-hacker-ascii.png": {
+    "sha256": "6c90f7a4c73e1b29ee67689e21e6e3de694eb6b4b6e3c9f2bae3d617e1efa0cd",
+    "mode": "0o644"
+  },
   "Pictures/Wallpapers/Hacker-Neon/wallpaper.png": {
     "sha256": "8614c77ad194d97f884369b93f15b2371ce18fdbff074f8570202bc83864df73",
     "mode": "0o644"
